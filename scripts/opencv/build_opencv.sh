@@ -3,6 +3,9 @@ set -eu
 
 OPENCV_BRANCH=${OPENCV_BRANCH="master"}
 
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+source $SCRIPT_DIR/../definition.sh
+
 mkdir -p build_opencv
 cd build_opencv
 
@@ -21,4 +24,4 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D WITH_CUDA=ON \
 -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules \
 ../opencv
-make -j6
+make -j$JOBS
