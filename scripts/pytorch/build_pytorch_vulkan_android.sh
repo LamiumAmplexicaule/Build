@@ -13,6 +13,7 @@ fi
 
 source ./build_venv/bin/activate
 
+pip3 install wheel
 pip3 install astunparse numpy ninja pyyaml setuptools cmake cffi typing_extensions future six requests dataclasses
 pip3 install mkl mkl-include
 
