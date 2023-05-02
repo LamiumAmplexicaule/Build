@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-PYTORCH_BRANCH=${PYTORCH_BRANCH="master"}
+PYTORCH_BRANCH=${PYTORCH_BRANCH="main"}
 
 mkdir -p build_pytorch_vulkan
 cd build_pytorch_vulkan

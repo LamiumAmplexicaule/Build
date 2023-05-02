@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-PYTORCH_BRANCH=${PYTORCH_BRANCH="master"}
+PYTORCH_BRANCH=${PYTORCH_BRANCH="main"}
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 source $SCRIPT_DIR/../definition.sh

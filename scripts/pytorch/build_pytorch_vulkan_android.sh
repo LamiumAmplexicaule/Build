@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-PYTORCH_BRANCH=${PYTORCH_BRANCH="master"}
+PYTORCH_BRANCH=${PYTORCH_BRANCH="main"}
 ANDROID_ABI=${ANDROID_ABI="arm64-v8a"}
 
 mkdir -p build_pytorch_android_vulkan
