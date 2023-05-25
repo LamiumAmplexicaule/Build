@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -eu
 
-#sudo apt-get -y install libdrm-dev libsystemd-dev
-#sudo apt-get -y install cmake libncurses5-dev libncursesw5-dev git
+sudo apt-get -y install libdrm-dev libsystemd-dev
+sudo apt-get -y install cmake libncurses5-dev libncursesw5-dev git
 
 mkdir -p build_nvtop
 cd build_nvtop
