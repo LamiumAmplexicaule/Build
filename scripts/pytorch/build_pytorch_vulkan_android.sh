@@ -32,4 +32,4 @@ python3 setup.py clean
 PYTHONPATH=$(pwd) ANDROID_HOME=${ANDROID_HOME:?} ANDROID_NDK=${ANDROID_NDK:?} BUILD_LITE_INTERPRETER=0 USE_VULKAN=1 bash ./scripts/build_pytorch_android.sh $ANDROID_ABI
 
 cd ../
-find . -type f -name '*.aar' | xargs -I{} cp {} .
+find . -type f -name '*.aar' -print0 | xargs -I{} cp {} .

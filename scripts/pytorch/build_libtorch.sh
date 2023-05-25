@@ -4,8 +4,8 @@ set -eu
 PYTHON=${PYTHON="python3"}
 PYTORCH_BRANCH=${PYTORCH_BRANCH="main"}
 
-SCRIPT_DIR=$(cd $(dirname $0); pwd)
-source $SCRIPT_DIR/../definition.sh
+SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
+source "$SCRIPT_DIR"/../definition.sh
 
 mkdir -p build_libtorch
 cd build_libtorch
@@ -34,5 +34,5 @@ cd ..
 
 mkdir -p pytorch-build
 cd pytorch-build
-cmake -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE:STRING=Release -DPYTHON_EXECUTABLE:PATH=`which python3` -DCMAKE_INSTALL_PREFIX:PATH=../pytorch-install ../pytorch
-cmake --build . --target install -j$JOBS
+cmake -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE:STRING=Release -DPYTHON_EXECUTABLE:PATH="$(which python3)" -DCMAKE_INSTALL_PREFIX:PATH=../pytorch-install ../pytorch
+cmake --build . --target install -j"$JOBS"
