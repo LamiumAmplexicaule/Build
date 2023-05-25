@@ -2,6 +2,10 @@
 
 Build script collection
 
+- nvtop
+- opencv
+- pytorch
+
 ## Requiremetns
 
 ### OpenCV
