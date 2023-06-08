@@ -27,6 +27,7 @@ rccl-dev
 rocblas-dev
 rocprim-dev
 rocrand-dev
+hipsolver-dev
 rocthrust-dev
 ```
 
