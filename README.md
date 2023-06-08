@@ -21,13 +21,13 @@ cuda
 ```
 hipcub-dev
 hipfft-dev
+hipsolver-dev
 hipsparse-dev
 miopen-hip-dev
 rccl-dev
 rocblas-dev
 rocprim-dev
 rocrand-dev
-hipsolver-dev
 rocthrust-dev
 ```
 
