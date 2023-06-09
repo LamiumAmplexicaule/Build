@@ -36,12 +36,13 @@ rocthrust-dev
 #### OpenCV
 
 ```bash
-OPENCV_BRANCH # OPENCV_BRANCH specifies the branch to be cloned. The default is is master.
+OPENCV_BRANCH # OPENCV_BRANCH specifies the branch to be cloned. The default is master.
 ```
 
 #### PyTorch
 
 ```bash
-PYTORCH_BRANCH # OPENCV_BRANCH specifies the branch to be cloned. The default is is main.
+PYTORCH_BRANCH # PYTORCH_BRANCH specifies the branch to be cloned. The default is main.
+TORCHVISION_BRANCH # TORCHVISION_BRANCH specifies the branch to be cloned. The default is main.
 PYTHON # PYTHON specifies the Python command name. The default is python3.
 ```
