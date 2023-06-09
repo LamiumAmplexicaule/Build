@@ -3,6 +3,10 @@ set -eu
 
 PYTHON=${PYTHON="python3"}
 PYTORCH_BRANCH=${PYTORCH_BRANCH="main"}
+TORCHVISION_BRANCH=${TORCHVISION_BRANCH="main"}
+
+SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
+source "$SCRIPT_DIR"/../definition.sh
 
 mkdir -p build_pytorch_rocm
 cd build_pytorch_rocm
@@ -29,7 +33,19 @@ git submodule sync
 git submodule update --init --recursive
 python3 setup.py clean
 python3 tools/amd_build/build_amd.py
-python3 setup.py bdist_wheel
+MAX_JOBS=$JOBS python3 setup.py bdist_wheel
 
 cd ../
 cp ./pytorch/dist/*.whl .
+
+pip install *.whl
+
+if [[ ! -d "vision" ]]; then
+    git clone -b $TORCHVISION_BRANCH --recursive https://github.com/pytorch/vision
+fi
+
+cd vision
+python3 setup.py clean
+MAX_JOBS=$JOBS python3 setup.py bdist_wheel
+cd ../
+cp ./vision/dist/*.whl .

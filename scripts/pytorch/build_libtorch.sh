@@ -3,6 +3,7 @@ set -eu
 
 PYTHON=${PYTHON="python3"}
 PYTORCH_BRANCH=${PYTORCH_BRANCH="main"}
+TORCHVISION_BRANCH=${TORCHVISION_BRANCH="main"}
 
 SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
 source "$SCRIPT_DIR"/../definition.sh
@@ -35,4 +36,14 @@ cd ..
 mkdir -p pytorch-build
 cd pytorch-build
 cmake -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE:STRING=Release -DPYTHON_EXECUTABLE:PATH="$(which python3)" -DCMAKE_INSTALL_PREFIX:PATH=../pytorch-install ../pytorch
+cmake --build . --target install -j"$JOBS"
+cd ..
+
+if [[ ! -d "vision" ]]; then
+    git clone -b $TORCHVISION_BRANCH --recursive https://github.com/pytorch/vision
+fi
+
+mkdir -p vision-build
+cd vision-build
+cmake -DCMAKE_PREFIX_PATH=../pytorch-install -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=../vision-install ../vision
 cmake --build . --target install -j"$JOBS"
