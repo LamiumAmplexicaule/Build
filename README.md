@@ -10,15 +10,22 @@ Build script collection
 
 ### OpenCV
 
-```
+```bash
 cuda
 ```
 
 ### PyTorch
 
-#### ROCm
+#### Common
 
 ```
+libpng-dev
+libjpeg-dev
+```
+
+#### ROCm
+
+```bash
 hipcub-dev
 hipfft-dev
 hipsolver-dev
